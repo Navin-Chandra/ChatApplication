@@ -44,8 +44,8 @@
         $("#send").click(() => {
             // addMessage({name: 'Tim', message: 'hello'})
             var message = {
-                name: $("#name").val(),
-                message: $("#message").val()
+                name: ($("#name").val()).trim(),
+                message: ($("#message").val()).trim()
             };
 
             console.log(message);
@@ -57,7 +57,7 @@
     
     socket.on('message', addMessage);
     function addMessage(message) {
-        console.log(message);
+       // console.log(message);
         $('#messages').append(`<h4> ${message.name} </h4>
             <p> ${message.message} </p>
         `)
@@ -71,7 +71,7 @@
     }
 
     function postMessageApi(message) {
-        console.log(message);
+        // console.log(message);
         $.post('http://localhost:3000/messages', message);
     }
 </script>
